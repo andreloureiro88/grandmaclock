@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>clock</title>
+    <script src="script.js"></script>
+    <script src="tailwind.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+            fontSize: {
+              "10xl": ["22rem", {}],
+              "11xl": ["27rem", {}],
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+  </head>
+  <body class="mx-auto max-w-[75%] h-screen flex flex-col">
+    <div class="flex flex-col h-1/6 pt-20">
+      <div class="flex justify-center items-center gap-4">
+        <div id="day" class="text-8xl text-cyan-500"></div>
+        <div id="month" class="text-8xl text-cyan-500"></div>
+      </div>
+
+      <div
+        id="year"
+        class="flex justify-center items-center text-5xl text-cyan-500 pt-20"
+      ></div>
+    </div>
+    <div class="flex justify-center items-center h-5/6 pt-10 relative">
+      <h1
+        id="hours"
+        class="flex-1 flex text-11xl text-orange-400 text-center justify-center font-bold"
+      ></h1>
+      <div class="grid gap-y-5 h-72 items-center">
+        <span class="relative justify-center items-center flex h-10 w-10">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-6 w-6 bg-orange-500"
+          ></span>
+        </span>
+        <span class="relative justify-center items-center flex h-10 w-10">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-6 w-6 bg-orange-500"
+          ></span>
+        </span>
+      </div>
+      <h1
+        id="minutes"
+        class="flex-1 flex text-11xl text-orange-400 text-center justify-center font-light"
+      ></h1>
+      <h1
+        id="seconds"
+        class="flex min-w-[200px] text-8xl text-orange-400 text-right font-light"
+      ></h1>
+    </div>
+  </body>
+</html>
