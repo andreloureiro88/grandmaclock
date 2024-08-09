@@ -14,6 +14,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     "Novembro",
     "Dezembro",
   ];
+
+  const colors = [
+    "text-cyan-500",
+    "text-green-500",
+    "text-red-400",
+    "text-orange-400",
+  ];
+  let currentColorIndex = 0;
+  let currentTimeColorIndex = colors.length - 1;
   setInterval(() => {
     const date = new Date();
     var hours = date.getHours();
@@ -31,4 +40,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("month").innerHTML = months[month];
     document.getElementById("year").innerHTML = year;
   }, 1000);
+
+  changeColor = (el) => {
+    el.classList.remove(colors[currentColorIndex]);
+    currentColorIndex++;
+    if (currentColorIndex > colors.length - 1) {
+      currentColorIndex = 0;
+    }
+    el.classList.add(colors[currentColorIndex]);
+  };
+
+  changeTimeColor = (el) => {
+    el.classList.remove(colors[currentTimeColorIndex]);
+    currentTimeColorIndex--;
+    if (currentTimeColorIndex < 0) {
+      currentTimeColorIndex = colors.length - 1;
+    }
+    el.classList.add(colors[currentTimeColorIndex]);
+  };
 });
